@@ -1,7 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 
-export default class Usuario extends Model {
+export default class Seguradora extends Model {
   static init(sequelize) {
     super.init({
       //VALIDANDO OS CAMPOS
@@ -12,7 +12,7 @@ export default class Usuario extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'Campo usename deve ter entre 3 a 255 caracteres',
+            msg: 'O nome da seguradora deve ter entre 3 a 255 caracteres',
           }
         }
       },
@@ -66,21 +66,17 @@ export default class Usuario extends Model {
 
     }, {
       sequelize,
-      modelName:'Usuario'
+      modelName:'Seguradora'
     });
 
-    this.addHook('beforeSave', async usuario => {
-      if(usuario.password) {
-        usuario.password_hash = await bcrypt.hash(usuario.password, 8);
+    this.addHook('beforeSave', async seguradora => {
+      if(seguradora.password) {
+        seguradora.password_hash = await bcrypt.hash(seguradora.password, 8);
       }
 
     });
 
     return this;
-  }
-
-  static associate(models) {
-    this.hasMany(models.Denuncias, { foreignKey: 'usuarioId' });
   }
 
   passwordIsValid(password) {
