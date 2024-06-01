@@ -6,7 +6,7 @@ export default class Seguradora extends Model {
     super.init({
       //VALIDANDO OS CAMPOS
 
-      name: {
+      nome: {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {

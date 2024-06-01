@@ -13,7 +13,7 @@ class SeguradoraController {
   }
   }
 
-
+/*
   //show --> listar um usuario
   async show(req, res){
     try {
@@ -44,7 +44,7 @@ class SeguradoraController {
           errors: ['ID invalido'],
         });
 
-      }*/
+      }
 
        const usuario = await Usuario.findByPk(req.usuarioId);
 
@@ -84,7 +84,7 @@ class SeguradoraController {
           errors: ['ID invalido'],
         });
 
-      }*/
+      }
 
        const usuario = await Usuario.findByPk(req.usuarioId);
 
@@ -102,7 +102,7 @@ class SeguradoraController {
         errors: e.errors.map(err => err.message),
       });
     }
-  }
+  }*/
 
 
 }
