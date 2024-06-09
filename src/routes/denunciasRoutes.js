@@ -4,6 +4,7 @@ import DenunciasController from "../controllers/DenunciasController";
 
 import loginRequired from "../middlewares/loginRequired";
 import loginAgenteRequired from '../middlewares/loginAgenteRequired';
+import loginSeguradoraRequired from '../middlewares/loginRequiredSeguradora';
 
 const router = new Router();
 
@@ -16,7 +17,7 @@ router.get('/', loginAgenteRequired, DenunciasController.index);
 router.get('/:id', loginAgenteRequired, DenunciasController.show)
 router.put('/:id', loginAgenteRequired, DenunciasController.update);
 //outer.get('/matricula/:matriculaVeiculo', DenunciasController.regitration);
-router.post('/matricula', DenunciasController.regitration);
+router.post('/matricula', loginSeguradoraRequired, DenunciasController.regitration);
 
 //router.delete('/', DenunciasController.delete);
 
