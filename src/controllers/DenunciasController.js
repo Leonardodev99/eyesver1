@@ -74,8 +74,8 @@ class DenunciasController {
       const denuncia = await Denuncia.findOne({ where: { usuarioId }});
       //const { id, username, email, telefone} = usuario;
       return res.json(denuncia);*/
-      const { id } = req.params.id;
-      const denuncia = await Denuncia.findOne(id);
+      const { id } = req.params;
+      const denuncia = await Denuncia.findByPk(id);
 
       if(!denuncia) {
         return res.status(404).json({ error: 'Denúncia não encontrada' });
@@ -83,7 +83,7 @@ class DenunciasController {
       return res.json(denuncia);
     }catch (e) {
       console.log(e)
-      return res.json(null);
+      return res.status(500).json({ error: 'Ocorreu um erro ao buscar a denúncia' });
     }
   }
 
@@ -215,13 +215,9 @@ class DenunciasController {
     return res.json(denuncia);
   }catch (e) {
     console.log(e)
-    return res.json(null);
+    return res.status(500).json({ error: 'Ocorreu um erro ao buscar a denúncia' });
   }
 }
-
-  
-
-  
 
 
 }
