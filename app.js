@@ -12,6 +12,7 @@ import AgenteRoutes from './src/routes/AgenteRoutes';
 import tokenAgenteRoutes from './src/routes/tokenAgenteRoutes';
 import denunciasRoutes from './src/routes/denunciasRoutes';
 import seguradoraRoutes from './src/routes/seguradoraRoutes';
+import tokenSeguradoraRoutes from './src/routes/tokenSeguradoraRoutes';
 
 
 
@@ -36,6 +37,7 @@ class App {
     this.app.use('/tokenAgente/', tokenAgenteRoutes);
     this.app.use('/denuncias/', denunciasRoutes);
     this.app.use('/seguradora/', seguradoraRoutes);
+    this.app.use('/tokenSeguradora', tokenSeguradoraRoutes);
   }
 }
 
