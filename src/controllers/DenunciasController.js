@@ -196,6 +196,34 @@ class DenunciasController {
   }
 
 
+ //show --> por matricular
+ async regitration(req, res){
+  try {
+
+   /* const usuarioId = req.params.id;
+    
+    const denuncia = await Denuncia.findOne({ where: { usuarioId }});
+    //const { id, username, email, telefone} = usuario;
+    return res.json(denuncia);*/
+    //const { matriculaVeiculo } = req.params;
+    const { matriculaVeiculo } = req.body;
+    const denuncia = await Denuncia.findOne({ where: { matriculaVeiculo } });
+
+    if(!denuncia) {
+      return res.status(404).json({ error: 'Denúncia não encontrada' });
+    }
+    return res.json(denuncia);
+  }catch (e) {
+    console.log(e)
+    return res.json(null);
+  }
+}
+
+  
+
+  
+
+
 }
 
 export default new DenunciasController();

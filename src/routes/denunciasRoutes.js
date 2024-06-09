@@ -15,6 +15,8 @@ router.get('/minhas', loginRequired, DenunciasController.minhasDenuncias);
 router.get('/', loginAgenteRequired, DenunciasController.index);
 router.get('/:id', loginAgenteRequired, DenunciasController.show)
 router.put('/:id', loginAgenteRequired, DenunciasController.update);
+//outer.get('/matricula/:matriculaVeiculo', DenunciasController.regitration);
+router.post('/matricula', DenunciasController.regitration);
 
 //router.delete('/', DenunciasController.delete);
 
